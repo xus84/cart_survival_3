@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  font-family: 'Orelega One', cursive;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F01%2F20264-nature-forest-trees-green.jpg&f=1&nofb=1);
+ 
+}
+
+.title {
+  font-family: 'Orelega One', cursive;
+  color: antiquewhite;
+  height: 75px;
+  margin-top: 10px;
+  text-align: center;
+  background-image: url(./img/camo_seamless-.jpg);
+}
+
+span {
+  padding-top: 5px;
+}
+
+
+.product {
+  margin: 5px;
+  height: 300px;
+  width: 200px;
+  border: 1px solid lightgrey;
+  background: rgb(248, 244, 244);
+  color: black;
+}
+p {
+  margin-left: 25px;
+}
+
+.picture {
+ padding-left: 25px;
+ display: flex; 
+ align-items: center; 
+}
+.button {
+  margin-top: 25px;
+  margin-left: 50px;
+}
+button {
+  border-radius: 5px;
+}
+
+
+
+
+
