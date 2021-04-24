@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 
+const PAGE_PRODUCTS = 'products';
+const PAGE_CART = 'cart';
+
 function App() {
   const [cart, setCart] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
 
   const [products] = useState([
     {
@@ -26,17 +30,21 @@ function App() {
 
   const addToCart = (product) => {
    
-    setCart([...cart, product]);
+    setCart([...cart, { ...product}]);
   };
 
-  return (
-    
-    <div className="title">
-     
-      <h1>
-        MY CART <span className="number_cart">{cart.length}</span><span className="icon_cart"><i class="fa fa-shopping-cart"  aria-hidden="true"></i></span>
-      </h1>
+  const removeFromCart = (productToRemove) => {
+    setCart(
+      cart.filter((product) => product !== productToRemove));
+    };
+ 
 
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  }
+
+  const renderProducts = () => (
+    <>
       <div className="container">
         {products.map((product, idx) => (
           <div className="product" key={idx}>
@@ -52,6 +60,45 @@ function App() {
           </div>
         ))}
       </div>
+    </>
+  );
+    
+  
+
+   const renderCart = () => ( 
+    <>
+    <h3>Cart</h3>
+    <div className="container">
+      {cart.map((product, idx) => (
+        <div className="product" key={idx}>
+          <h3>{product.name}</h3>
+          <h4>
+            <i class="fa fa-bitcoin"></i>
+            {product.cost}
+          </h4>
+          <img src={product.image} width="150px" height="150px" />
+          <div className="button">
+            <button onClick={() => removeFromCart(product)}>Remove</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </>
+  );
+    
+   
+
+  return (
+    
+    <div className="app">
+      <header>
+      <h1>MY CART <span className="number_cart">{cart.length}</span><span className="icon_cart"><i class="fa fa-shopping-cart"  aria-hidden="true"></i></span><button className="gotoCart" onClick={() => navigateTo(PAGE_CART)}>Go to Cart</button>
+      
+      <button className="gotoBack" onClick={() => navigateTo(PAGE_PRODUCTS)}>⏪ ⏪ back</button>
+      </h1> 
+      </header> 
+      {page === PAGE_PRODUCTS && renderProducts()}
+      {page === PAGE_CART && renderCart()} 
     </div>
   );
 }

@@ -5,7 +5,7 @@
  
 }
 
-.title {
+.app {
   font-family: 'Orelega One', cursive;
   color: antiquewhite;
   height: 75px;
@@ -55,6 +55,17 @@ button {
 
 .icon_cart {
   padding-left: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+.gotoBack{
+  float: left;
+}
+
+.gotoCart{
+  float: center;
 }
 
 
