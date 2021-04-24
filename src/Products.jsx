@@ -4,18 +4,18 @@ export default function Products({ addToCart }){
     const [products] = useState([
         {
           name: "Survival knife",
-          cost: 0.000001499,
+          cost: 0.02,
           image:
             "https://cdn-s3.touchofmodern.com/products/000/704/624/02eb1b3935aa6c30aab808357391fb7d_large.jpg?1495500637",
         },
         {
           name: "Survival Canteen",
-          cost: 0.0000001,
+          cost: 0.00007,
           image: "https://images.ontheedgebrands.com/images/A12-PF52060.jpg",
         },
         {
           name: "Survival Bag Pack",
-          cost: 0.0000025,
+          cost: 0.005,
           image:
             "https://www.thebushcraftstore.co.uk/ekmps/shops/bduimportsltd/images/survival-store-s-small-survival-kit-[3]-9448-p.jpg",
         },

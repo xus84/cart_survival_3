@@ -23,12 +23,28 @@ function App() {
 
     
   const addToCart = (product) => {
-    setCart([...cart, { ...product}]);
+    let newCart = [...cart];
+    let itemInCart = newCart.find((item) => product.name === item.name);
+    if (itemInCart){
+      itemInCart.quantity++;
+    } else {
+      itemInCart = {
+        ...product,
+        quantity: 1,
+        }
+        newCart.push(itemInCart);
+     /*  cart = [...cart, itemInCart]  */
+    }
+    setCart(newCart); /* ([...cart, { ...product}]); */
   };
 
-  /*  const renderCart = () => ( 
+  const clearCart = () => {
+    setCart([]);
+  };
 
-  ); */
+  const getCartTotal = () => {
+    return cart.reduce((sum, {quantity}) => sum + quantity,0); 
+  }
     
    
 
@@ -36,7 +52,7 @@ function App() {
     
     <div className="app">
       <header>
-      <h1>MY CART <span className="number_cart">{cart.length}</span><span className="icon_cart"><i class="fa fa-shopping-cart"  aria-hidden="true"></i></span><button className="gotoCart" onClick={() => navigateTo(PAGE_CART)}>Go to Cart</button>
+      <h1>MY CART <span className="number_cart">{getCartTotal()}</span><span className="icon_cart"><i class="fa fa-shopping-cart"  aria-hidden="true"></i></span><button className="gotoCart" onClick={() => navigateTo(PAGE_CART)}>Go to Cart</button>
       
       <button className="gotoBack" onClick={() => navigateTo(PAGE_PRODUCTS)}>⏪ ⏪ back</button>
       </h1> 
@@ -45,7 +61,7 @@ function App() {
         <Products addToCart={addToCart}/>
       )}
       {page === PAGE_CART && (
-        <Cart cart={cart} removeFromCart={removeFromCart}/>
+        <Cart cart={cart} removeFromCart={removeFromCart} clearCart={clearCart} />
       )} 
     </div>
   );
