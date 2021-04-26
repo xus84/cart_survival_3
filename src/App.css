@@ -68,6 +68,14 @@ a {
   float: center;
 }
 
+@media (max-width: 411px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
+
 
 
 

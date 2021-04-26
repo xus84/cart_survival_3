@@ -5,9 +5,14 @@
     padding-left: 5px;
 }
 
-h4 {
-    width: 30px;
-}
 .quantity {
     display: flex;
+}
+
+.qty{
+    align-items: center;
+    width: 80px;
+} 
+h4 {
+    width: 80px;   
 }

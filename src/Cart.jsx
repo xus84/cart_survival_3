@@ -20,8 +20,9 @@ export default function Cart({ cart, clearCart, removeFromCart }) {
                   <i class="fa fa-bitcoin"></i>
                   {product.cost}
                 </h4>
+                <div className="qty">
                 <h4>Qty:{product.quantity}</h4>
-              
+                </div>
             </div>
 
             <img src={product.image} width="150px" height="150px" />
